@@ -17,7 +17,7 @@ app.use(express.static(publicDirectoryPath))
 
 
 
-
+//Landing page
 app.get('',(req,res)=>{
     res.render('index',{
         title:'Weather App',
