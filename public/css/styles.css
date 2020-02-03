@@ -1,6 +1,88 @@
-h1 {
-    color: red;
+body {
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-img {
-    width:255px;
+
+.main-content {
+    flex-grow: 1;
+}
+.topnav {
+    background-color: #7BBFD5;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #144556 ;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  /* Add a color to the active/current link */
+  .topnav a.active {
+    background-color: rgb(32, 61, 95);
+    color: white;
+  }
+
+footer {
+    color: darkslategrey;
+    border-top: 1px solid #eeeeee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+header {
+    margin-top: 16x;
+    margin-bottom: 48px;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
+header a {
+    color: #888888;
+    margin-right: 16px;
+    text-decoration: none;
+}
+
+.portrait {
+    width:200px;
+}
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+button {
+    background-color: darkslategray;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: aqua;
+    
+}
+button :hover {
+    background-color: cadetblue;
 }

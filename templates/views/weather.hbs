@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Search</title>
+    <link rel="icon" href="/img/weather.png">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/app.js"></script>
+</head>
+
+<body>
+    <div class="main-content">
+        {{>header}}
+        {{!-- <label>Search here :</label>
+        <input type="text" name="loaction" id:"location" placeholder="Enter Location Name" required>
+        <input type="submit" class='btn' name="Search" data-address={{location}}></input> --}}
+        {{address}}
+    </div> 
+    
+    
+
+
+    {{>footer}}
+    <script>
+        $(document).on('click','.btn',function(){
+            var address = $(this).data('location');
+            if(address != undefined && address != null){
+                window.location='/weather?address='+address
+            }
+        })
+    </script>
+</body>
+</html>
