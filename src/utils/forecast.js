@@ -1,6 +1,8 @@
 const request = require('request')
 
 const forecast = (latitude,longitude,callback) =>{
+    // const nowTime = new Date().valueOf()
+    // console.log(nowTime)
 const url = 'https://api.darksky.net/forecast/3e054f3a948e0244b06fcad8d8ae71f7/'+encodeURIComponent(longitude)+","+encodeURIComponent(latitude)+'?units=si'
 
 request({url,json:true},(error, {body})=>{
