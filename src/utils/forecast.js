@@ -18,7 +18,7 @@ request({url,json:true},(error, {body})=>{
                            body.currently.temperature +" degree temparature with "+ 
                            body.currently.precipProbability +"% possibility of rain. "+
                            "Maximum temparature of the day is "+ body.daily.data[0].temperatureMax +//+ " at "+ new Date(body.daily.data[0].temperatureMaxTime)+
-                           "degree and Minimum temparature of the day is "+ body.daily.data[0].temperatureMin +" degree."//+ " at "+ new Date(body.daily.data[0].temperatureMinTime)
+                           " degree and Minimum temparature of the day is "+ body.daily.data[0].temperatureMin +" degree."//+ " at "+ new Date(body.daily.data[0].temperatureMinTime)
         )
     }
 })
