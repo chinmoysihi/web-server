@@ -2,11 +2,11 @@ const request = require('request')
 
 const geocode = (address,callback)=>{
     const geoCodeUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+encodeURIComponent(address)+".json?access_token=pk.eyJ1IjoiY2hpbm1veXNpaGkiLCJhIjoiY2s1eTNlMHU0MGdhMjNsbmplOTF1ODEwaCJ9.cxd4JXZN0Gem_1kFRq11gg"
-
+    console.log(geoCodeUrl)
     request({url:geoCodeUrl,json:true},(error,response) => {
         if(error){
             callback("Unable to connect the location services")
-        }else if(response.body.length === 0){
+        }else if(response.body.features.length === 0){
             callback("Unable to find location. Try another search")
         }else{
             callback(undefined,{

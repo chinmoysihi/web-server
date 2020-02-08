@@ -21,7 +21,35 @@ hbs.registerPartials(partialPath)
 //Setup static directory to serve
 app.use(express.static(publicDirectoryPath))
 
-
+app.get('/weather',(req,res)=>{
+    if(!req.query.address){
+        return res.send({
+            error:'You must provide Address'
+        })
+    }
+    else{
+        geocode(req.query.address,(error,{latitude,longitude,location} = {})=>{
+            if(error){
+                return res.send({
+                    error: error
+                })
+            }
+        
+            forecast(latitude,longitude, (error, forecastData) => {
+                if(error){
+                    return res.send({
+                        error:error
+                    })
+                }
+                res.send({
+                    forecast:forecastData,
+                    location,
+                    address:req.query.address
+                })
+              })
+        })
+    }
+})
 
 //Landing page here
 app.get('',(req,res)=>{
@@ -48,42 +76,7 @@ app.get('/help',(req,res)=>{
     })
 })
 
-app.get('/weather',(req,res)=>{
-    if(!req.query.address){
-        return res.send({
-            error:'You must provide Address'
-        })
-    }
-    else{
-        geocode(req.query.address,(error,{latitude,longitude,location})=>{
-            if(error){
-                return res.send({
-                    addressError: error
-                })
-            }
-        
-            forecast(latitude,longitude, (error, forecastData) => {
-                if(error){
-                    return res.send({
-                        forcastError:error
-                    })
-                }
-                res.send({
-                    forecast:forecastData,
-                    location,
-                    address:req.query.address
-                })
-              })
-        })
-    }
 
-    // res.render('weather',{
-    //     title:"Weather Search",
-    //     forecast:'It is hot',
-    //     location:'Bangaluru',
-    //     address:req.query.address
-    // })
-})
 
 //
 app.get('/products',(req,res)=>{
