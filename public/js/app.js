@@ -25,14 +25,14 @@ weatherForm.addEventListener('submit', (e)=>{
     fetch(url).then((response) => {
         // console.log(response.json())
         response.json().then((data) => {
-            console.log(data)
+            // console.log(data)
             if(data.error){
                 messageOne.textContent = data.error
-                console.log(1)
-                console.log(data.error)
+//                console.log(1)
+//                 console.log(data.error)
             }else{
                 messageOne.textContent = data.location
-                messageTwo.textContent = data.forecast.summary +' with '+data.forecast.temparature+' degree of temparature '
+                messageTwo.textContent = data.forecast
                 console.log(data.location)
                 console.log(data.forecast)
             }
